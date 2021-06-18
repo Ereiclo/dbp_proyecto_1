@@ -11,7 +11,7 @@
 El proyecto consiste en una casa de apuestas relacionada a la Copa América que se disputa este año. Un usuario podrá registrarse y logearse para apostar a su equipo favorito, de acuerdo a su porcentaje de ganancia y dinero que invierta.
 
 # Objetivos:
--Lograr que un usuario invierta dinero y se almacene en la base de datos.
+- Lograr que un usuario invierta dinero y se almacene en la base de datos.
 
 # Misión:
 - Lograr que las personas puedan apostar sin problemas en nuestra página web.
