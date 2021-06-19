@@ -41,7 +41,7 @@ class Usuario(db.Model):
     fecha_de_nacimiento=db.Column(db.Date,nullable=False) 
     dinero_en_cuenta=db.Column(db.Float,nullable=False,default=0)
     ult_inicio_sesion=db.Column(db.DateTime,nullable=False)    
-    rol=db.Column(db.Integer,db.ForeignKey("rol.id_rol"),nullable=False,default="1")
+    rol=db.Column(db.Integer,db.ForeignKey("rol.id_rol"),nullable=False,default=1)
     
     def __repr__(self):
         return f'<Usuario: {self.id_persona}, {self.nombre}, {self.apellidos}, {self.usuario},{self.contrasenia}, {self.email},{self.rol}>'
@@ -161,7 +161,7 @@ def comprobar_credenciales():
 
 
 @app.route('/depositar',methods=['POST'])
-def apuestas():
+def depositar():
     d =request.form    
     print("Esto es depositar",d)
     id=d['id']
@@ -196,7 +196,7 @@ def delete_todo_by_id(card_id):
     return jsonify({"success": True})
 
 @app.route('/partidos',methods=['POST'])
-def prueba():
+def partidos():
     d =request.form
 
     print("Esto es partidos",d)
@@ -204,6 +204,30 @@ def prueba():
     
     
     return render_template('partidos.html',data2 = Equipos.query.all(),data = Partidos.query.all(),d=d)
+
+
+@app.route('/apuestas',methods=['POST'])
+def apuestas():
+    d =request.form
+
+    print("Esto es apuestas",d)
+
+    
+    
+    return render_template('apuestas.html',data = Apuestas.query.all(),data2=Partidos.query.all(),data3=Usuario.query.all(), data4 = Equipos.query.all(),d=d)
+
+
+
+@app.route('/informacion',methods=['POST'])
+def informacion():
+    d =request.form
+
+    print("Esto es informacion",d)
+
+    
+    
+    return render_template('informacion.html',d=d)
+
 
 
 @app.route('/register-verify',methods=['POST'])
@@ -333,14 +357,17 @@ def create_credit_card():
 
 @app.route('/monto',methods=['POST'])
 def montos():
+    
     porcentaje = request.get_json()['porcentaje']
     monto = request.get_json()['monto']
     id_partido = request.get_json()['id_partido']
     monto_total = float(porcentaje) * float(monto)
+    id_persona= request.get_json()['id_persona']
     apuesta = Apuestas(monto = monto_total,id_partido=id_partido, id_usuario = 1)
     db.session.add(apuesta)
     db.session.commit()
-    db.session.close()
+    
+
     return jsonify({})
 
 
@@ -360,10 +387,15 @@ def agregar_dinero():
     return redirect(url_for('index'))
 
 
+
+
+
 @app.route('/register')
 def register():
 
     return render_template('register.html')
+
+
 
 
 

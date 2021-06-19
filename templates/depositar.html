@@ -126,24 +126,44 @@
 
 
             }
+
+        .div-nav{
+            text-align: center;
+            width: fit-content;
+            height: fit-content;
+            padding: 8px;
+            cursor: pointer;
+            color: #00000080;
+
+        }
     </style>
 
 
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">BetsTec</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-                
-        <li class="nav-item">
-          <a class="nav-link" href="./depositar.html" id="redirect-depositar">Depositar</a>
-        </li>
-      </ul>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">BetsTec</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"></li>
+              <div class="div-nav">Partidos</div>
+            </li>
+            <li class="nav-item">
+                <div class="div-nav">Apuestas</div>
+            </li>
+            <li class="nav-item">
+                <div class="div-nav">Información</div>
+            </li>
+            <li class="nav-item">
+                <div class="div-nav">Depositar</div>
+              
+            </li>
+          </ul>
+        </div>
+      </nav>
   </nav>
 
 
@@ -173,7 +193,7 @@
 
                 <label for="dinero_agregado">Pon una cantidad a agregar: </label>
                 <input type="text" id="monto" name="dinero_agregado">
-                <input type="submit" onclick="funcion()"  id="btnsubmit" name="btn">
+                <input type="submit"  id="btnsubmit" name="btn">
 
             </div>
             
@@ -190,24 +210,84 @@
       
 
       
+    const divnavs= document.querySelectorAll(".div-nav")
+
+    for(let i=0;i<divnavs.length;i++){
+        const divnav= divnavs[i];
+
+        divnav.onclick=function(){
+            
+            const f= document.getElementById("form")
+            
+            document.getElementById("deposit").removeChild(f)
+
+            const form = document.createElement("form")
+            const i1= document.createElement("input")
+            const i2= document.createElement("input")
+            const i3= document.createElement("input")
+
+            form.className="hidden"
+
+            if(divnav.innerHTML==="Partidos"){
+                form.action="/partidos"
+
+            }else if(divnav.innerHTML==="Apuestas"){
+                form.action="/apuestas"
+
+            }else if(divnav.innerHTML==="Información"){
+                form.action="/informacion"
+
+            }else if(divnav.innerHTML==="Depositar"){
+                form.action="/depositar"
+
+            }
+
+            
+            form.method="POST"
+
+            i1.type="text"
+            i1.name="usuario"
+            i1.value= "{{d['usuario']}}"
+                
+            i2.type="password"
+            i2.name="password"
+            i2.value= "{{d['password']}}"
+
+            i3.type="text"
+            i3.name="id"
+            i3.value= "{{d['id']}}"
+
+            form.appendChild(i1)
+            form.appendChild(i2)
+            form.appendChild(i3)
+
+            document.body.appendChild(form)
+            form.submit()
+            document.body.removeChild(form)
+
+
+        }
+
+
+    }
+
+    
 
       
 
-      function funcion(){
-          document.getElementById("form")
-      }
 
       const buttons= document.querySelectorAll(".delete-button");
+            console.log("{% if leng !=0 %} El botón agregar_tarjeta ya no existe, eso da el siguiente error -> {%endif%}")
 
             for(let i=0;i<buttons.length;i++){
 
                 
                 const button= buttons[i];
-                console.log(button)
+                
 
                 button.onclick= function(e){
                     e.preventDefault()
-                    console.log(e);
+                    
 
                     const id= "{{d['id']}}";
 
@@ -239,6 +319,7 @@
                 
 
             };
+            
             document.getElementById("agregar_tarjeta").onclick=function(e){
                 e.preventDefault()
                 append_card()
@@ -253,6 +334,8 @@
             
             document.getElementById("deposit").removeChild(form)
             var form= document.createElement("form")
+
+            form.id="form"
             form.action="/create_credit_card"
 
         
@@ -334,6 +417,7 @@
 
                 redirect_depositar()
             }
+            
             button_cancel.innerHTML="<u>Cancelar</u>"
 
             button_append.className="boton-agregar"
@@ -392,6 +476,7 @@
 
 
                     })
+                    
                     redirect_depositar();
                     
 
@@ -444,20 +529,24 @@
           
       }
       
-      
-
-     
 
       function redirect_depositar(){
-          
-          
+
+        const f= document.getElementById("form")
+            
+            document.getElementById("deposit").removeChild(f)
+
             const form = document.createElement("form")
             const i1= document.createElement("input")
             const i2= document.createElement("input")
             const i3= document.createElement("input")
 
-            form.className="hidden"
+            form.className="hidden"            
             form.action="/depositar"
+
+            
+
+            
             form.method="POST"
 
             i1.type="text"
@@ -480,17 +569,15 @@
             form.submit()
             document.body.removeChild(form)
 
-      }
 
-      document.getElementById("redirect-depositar").onclick=function(e){
-          e.preventDefault()
-
-          redirect_depositar()
-
-          
 
 
       }
+      
+     
+
+      
+      
 
 
   </script>

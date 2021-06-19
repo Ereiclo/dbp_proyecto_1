@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for ('static',filename='css/bootstrap/css/bootstrap.css')}}">
+    <title>BetsTec</title>
+    
+<style>
+    .div-nav{
+      text-align: center;
+      width: fit-content;
+      height: fit-content;
+      padding: 8px;
+      cursor: pointer;
+      color: #00000080;
+
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" >BetsTec</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"></li>
+            <div class="div-nav">Partidos</div>
+          </li>
+          <li class="nav-item">
+              <div class="div-nav">Apuestas</div>
+          </li>
+          <li class="nav-item">
+              <div class="div-nav">Información</div>
+          </li>
+          <li class="nav-item">
+              <div class="div-nav">Depositar</div>
+            
+          </li>
+        </ul>
+      </div>
+    </nav>
+</nav>
+
+  Partidos de la Copa América
+  <div class="container">
+    <div class="row" id="row">
+      <div class="col-8">
+        {% for equipo in data%}
+          {% for country in data2%}
+              {%if country.id_equipo == equipo.equipo_a and equipo.equipo_a==1%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Argentina.png" height="20"/><label id="description1.1">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.1">{{equipo.porcentaje_1 }}</label>
+                <input type="button" name="elegir" value="1" id="boton1"> 
+                {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==2%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Chile.png" height="20"/><label id="description1.2">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.2">{{equipo.porcentaje_1 }}</label>
+                <input type="button" name="elegir" value="1" id="boton2"> 
+                {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==3%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Colombia.png" height="20"/><label id="description1.3">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.3">{{equipo.porcentaje_1 }}</label> 
+                <input type="button" name="elegir" value="1" id="boton3"> 
+                {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==4%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Peru.png" height="20"/><label id="description1.4">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.4">{{equipo.porcentaje_1 }}</label> 
+                <input type="button" name="elegir" value="1" id="boton4"> 
+                {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==5%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Ecuador.png" height="20"/><label id="description1.5">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.5">{{equipo.porcentaje_1 }}</label> 
+                <input type="button" name="elegir" value="1" id="boton5">
+                {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==6%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Brasil.png" height="20"/><label id="description1.6">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.6">{{equipo.porcentaje_1 }}</label>
+                <input type="button" name="elegir" value="1" id="boton6"> 
+                {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==7%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Paraguay.png" height="20"/><label id="description1.7">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.7">{{equipo.porcentaje_1 }}</label>
+                <input type="button" name="elegir" value="1" id="boton7"> 
+                {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==8%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Venezuela.png" height="20"/><label id="description1.8">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.8">{{equipo.porcentaje_1 }}</label> 
+                <input type="button" name="elegir" value="1" id="boton8"> 
+                {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==9%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Bolivia.png" height="20"/><label id="description1.9">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.9">{{equipo.porcentaje_1 }}</label> 
+                <input type="button" name="elegir" value="1" id="boton9">  
+                {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==10%} 
+                <label id="id_partido" >{{equipo.id_partido}}</label><img src="http://127.0.0.1:5002/static/images/Uruguay.png" height="20"/><label id="description1.10">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.10">{{equipo.porcentaje_1 }}</label>
+                <input type="button" name="elegir" value="1" id="boton10"> 
+                {%endif%}
+              {%if country.id_equipo == equipo.equipo_b and equipo.equipo_b==1%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.1"> <label id="description2.1">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.1">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Argentina.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br> 
+              {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==2%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.2"> <label id="description2.2">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.2">{{country.pais}}</label><img src="http://127.0.0.1:5002/static/images/Chile.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br>              
+              {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==3%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.3"> <label id="description2.3">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.3">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Colombia.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br>              
+              {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==4%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.4"> <label id="description2.4">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.4">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Peru.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br>              
+              {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==5%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.5"> <label id="description2.5">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.5">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Ecuador.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br>              
+              {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==6%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.6"> <label id="description2.6">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.6">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Brasil.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br>              
+              {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==7%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.7"> <label id="description2.7">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.7">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Paraguay.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br>              
+              {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==8%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.8"> <label id="description2.8">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.8">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Venezuela.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br>              
+              {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==9%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.9"> <label id="description2.9">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.9">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Bolivia.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br>              
+              {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==10%}
+              &nbsp;&nbsp;<input type="button" name="elegir" value="2" id="boton2.10"> <label id="description2.10">{{equipo.porcentaje_2}}</label>&nbsp; &nbsp; &nbsp;<label id="description1.10">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Uruguay.png" height="20"/><label id="id_partido" >{{equipo.id_partido}}</label><br>              
+
+              {%endif%} 
+          {%endfor%}
+         {%endfor%}
+      </div>
+    </div>
+  </div >
+</body>
+</html>
+
+
+
+<script>
+      const divnavs= document.querySelectorAll(".div-nav")
+
+      for(let i=0;i<divnavs.length;i++){
+          const divnav= divnavs[i];
+
+          divnav.onclick=function(){
+              
+              
+              
+              
+
+              const form = document.createElement("form")
+              const i1= document.createElement("input")
+              const i2= document.createElement("input")
+              const i3= document.createElement("input")
+
+              form.className="hidden"
+
+              if(divnav.innerHTML==="Partidos"){
+                  form.action="/partidos"
+
+              }else if(divnav.innerHTML==="Apuestas"){
+                  form.action="/apuestas"
+
+              }else if(divnav.innerHTML==="Información"){
+                  form.action="/informacion"
+
+              }else if(divnav.innerHTML==="Depositar"){
+                  form.action="/depositar"
+
+              }
+
+              
+              form.method="POST"
+
+              i1.type="text"
+              i1.name="usuario"
+              i1.value= "{{d['usuario']}}"
+                  
+              i2.type="password"
+              i2.name="password"
+              i2.value= "{{d['password']}}"
+
+              i3.type="text"
+              i3.name="id"
+              i3.value= "{{d['id']}}"
+
+              form.appendChild(i1)
+              form.appendChild(i2)
+              form.appendChild(i3)
+
+              document.body.appendChild(form)
+              form.submit()
+              document.body.removeChild(form)
+
+
+          }
+
+
+      }
+
+
+
+  document.getElementById("boton1").onclick = function mostrar(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.1").innerHTML
+    var porcentaje = document.getElementById("description2.1").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.1').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML,
+        'id_persona': "{{d['id']}}"
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2").onclick = function mostrar2(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.2").innerHTML
+    var porcentaje = document.getElementById("description2.2").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.2').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton3").onclick = function mostrar3(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.3").innerHTML
+    var porcentaje = document.getElementById("description2.3").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.3').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton4").onclick = function mostrar4(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.4").innerHTML
+    var porcentaje = document.getElementById("description2.4").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.4').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton5").onclick = function mostrar5(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.5").innerHTML
+    var porcentaje = document.getElementById("description2.5").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.5').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton6").onclick = function mostrar6(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.6").innerHTML
+    var porcentaje = document.getElementById("description2.6").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.6').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton7").onclick = function mostrar7(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.7").innerHTML
+    var porcentaje = document.getElementById("description2.7").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.7').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton8").onclick = function mostrar8(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.8").innerHTML
+    var porcentaje = document.getElementById("description2.8").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.8').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton9").onclick = function mostrar9(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.9").innerHTML
+    var porcentaje = document.getElementById("description2.9").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.9').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton10").onclick = function mostrar10(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.10").innerHTML
+    var porcentaje = document.getElementById("description2.10").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.10').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.1").onclick = function mostrar2_1(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.1").innerHTML
+    var porcentaje = document.getElementById("description2.1").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.1').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.2").onclick = function mostrar2_2(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.2").innerHTML
+    var porcentaje = document.getElementById("description2.2").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.2').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.3").onclick = function mostrar2_3(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.3").innerHTML
+    var porcentaje = document.getElementById("description2.3").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.3').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.4").onclick = function mostrar2_4(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.4").innerHTML
+    var porcentaje = document.getElementById("description2.4").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.4').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.5").onclick = function mostrar2_5(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.5").innerHTML
+    var porcentaje = document.getElementById("description2.5").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.5').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.6").onclick = function mostrar2_6(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.6").innerHTML
+    var porcentaje = document.getElementById("description2.6").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.6').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.7").onclick = function mostrar2_7(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.7").innerHTML
+    var porcentaje = document.getElementById("description2.7").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.7').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.8").onclick = function mostrar2_8(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.8").innerHTML
+    var porcentaje = document.getElementById("description2.8").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.8').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.9").onclick = function mostrar2_9(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.9").innerHTML
+    var porcentaje = document.getElementById("description2.9").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.9').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+  document.getElementById("boton2.10").onclick = function mostrar2_10(){
+    var col_4= document.createElement("div")
+    var i1= document.createElement("input")
+    var i2= document.createElement("input")
+    i1.type="text"
+    i1.name="montos"
+    i1.id="monto"
+    i2.type="submit"
+    i2.name="submit"
+    i2.id="submit"
+    var pais = document.getElementById("description1.10").innerHTML
+    var porcentaje = document.getElementById("description2.10").innerHTML
+    var label = document.createElement("label")
+    var salto = document.createElement("br")
+    label.innerHTML = 'Pais: '+pais + '       Porcentaje: ' + porcentaje
+    label.htmlFor = "montos"
+    col_4.appendChild(label)
+    col_4.appendChild(salto)
+    col_4.appendChild(i1)
+    col_4.appendChild(i2)
+    col_4.className="col-4"
+
+    i2.onclick=function(){fetch('/monto',{
+      method : 'POST',
+      body: JSON.stringify({
+        'porcentaje':document.getElementById('description2.10').innerHTML,
+        'monto' : document.getElementById('monto').value,
+        'id_partido' : document.getElementById('id_partido').innerHTML
+      }),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    })}
+    document.getElementById("row").appendChild(col_4)
+  }
+</script>
