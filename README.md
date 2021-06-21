@@ -6,10 +6,10 @@
 - Salvador Olivares
 - Gabriel Suárez    
 
-# Instrucciones de uso
+# Instrucciones de uso: 
 - Crear una base de datos en postgres (modificar la uri en el "app.py" a gusto)
 - Hacer flask db upgrade en consola
-- Desde la consola de python, copiar y pegar el archivo "EJECUTAR_EN_CONSOLA_PYTHON_ANTES_DE_USAR_APP.txt"
+- Desde la consola de python (antes de entrar asegurénse de estar dentro de la carpeta dbp_proyecto_1), copiar y pegar el archivo "EJECUTAR_EN_CONSOLA_PYTHON_ANTES_DE_USAR_APP.txt"
 - Ejecutar el archivo app.py y listo!
 
 # Descripción del Proyecto:
