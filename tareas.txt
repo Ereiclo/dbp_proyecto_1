@@ -1,4 +1,0 @@
-#1 Funcionalidad de la pagina web
-#2 Arquitectura/Diagrama de base de datos
-#3 JS/JSON 
-#4 HTML/CSS

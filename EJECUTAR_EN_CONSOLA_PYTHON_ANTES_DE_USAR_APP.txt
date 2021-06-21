@@ -1,0 +1,40 @@
+#Primero crear la base de datos proyecto1 en postgres
+
+from app import db,Equipos,Partidos,Rol
+
+
+r1= Rol(rol="Usuario")
+r2= Rol(rol="Admin")
+
+db.session.add_all([r1,r2])
+
+
+e1 = Equipos(pais = 'Argentina', n_victorias = 0, n_derrotas = 0, n_empates=1) 
+e2 = Equipos(pais = 'Chile', n_victorias = 0, n_derrotas = 0, n_empates=1) 
+e3 = Equipos(pais = 'Colombia', n_victorias = 0, n_derrotas = 0, n_empates=0)   
+e4 = Equipos(id_equipo = 4, pais = 'Peru', n_victorias = 0, n_derrotas = 0, n_empates=0)     
+e5 = Equipos(id_equipo = 5,pais = 'Ecuador', n_victorias = 0, n_derrotas = 1, n_empates=0) 
+e6 = Equipos(id_equipo = 6,pais = 'Brasil', n_victorias = 1, n_derrotas = 0, n_empates=0) 
+e7 = Equipos(id_equipo = 7,pais = 'Paraguay', n_victorias = 1, n_derrotas = 0, n_empates=0) 
+e8 = Equipos(id_equipo = 8,pais = 'Venezuela', n_victorias = 0, n_derrotas = 1, n_empates=0) 
+e9 = Equipos(id_equipo = 9,pais = 'Bolivia', n_victorias = 0, n_derrotas = 1, n_empates=0)   
+e10 = Equipos(id_equipo = 10,pais = 'Uruguay', n_victorias = 0, n_derrotas = 0, n_empates=0) 
+
+
+db.session.add_all([e1,e2,e3,e4,e5,e6,e7,e8,e9,e10]) 
+
+
+p1 = Partidos(equipo_a = 1, equipo_b = 2, porcentaje_1 = 2, porcentaje_2 = 4)
+p2 = Partidos(equipo_a = 7, equipo_b = 9, porcentaje_1 = 4.34, porcentaje_2 = 5.75)
+p3 = Partidos(equipo_a = 6, equipo_b = 8, porcentaje_1 = 1.10, porcentaje_2 = 10.8)  
+p4 = Partidos(equipo_a = 7, equipo_b = 9, porcentaje_1 = 4.34, porcentaje_2 = 5.75) 
+p5 = Partidos(equipo_a = 3, equipo_b = 8, porcentaje_1 = 1.37, porcentaje_2 = 9.15) 
+p6 = Partidos(equipo_a = 4, equipo_b = 6, porcentaje_1 = 10.0, porcentaje_2 = 1.23) 
+p7 = Partidos(equipo_a = 2, equipo_b = 9, porcentaje_1 = 1.22, porcentaje_2 = 14.5)  
+p8 = Partidos(equipo_a = 1, equipo_b = 10, porcentaje_1 = 2.09, porcentaje_2 = 3.75) 
+p9 = Partidos(equipo_a = 5, equipo_b = 8, porcentaje_1 = 1.69, porcentaje_2 = 5.35)  
+p10 = Partidos(equipo_a = 3, equipo_b = 4, porcentaje_1 = 1.73, porcentaje_2 = 5.45) 
+p11 = Partidos(equipo_a = 2, equipo_b = 10, porcentaje_1 = 3.45, porcentaje_2 = 2.08) 
+p12 = Partidos(equipo_a = 1, equipo_b = 7, porcentaje_1 = 1.55, porcentaje_2 = 6.60)  
+db.session.add_all([p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12]) 
+db.session.commit()

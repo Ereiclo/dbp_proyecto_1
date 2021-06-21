@@ -1,0 +1,177 @@
+.boton {
+    margin-top: 20px;
+    margin-left: 110px;
+
+
+
+}
+
+.li-nav{
+    list-style: none;
+    color: black;
+       
+    
+}
+
+.li-cerrar-sesion{
+    list-style: none;
+    color: gray;
+    cursor: pointer; 
+}
+.boton-agregar {
+    float: right;
+    width: 75px;
+    height: 30px;
+
+}
+
+.add {
+    width: 60px;
+    height: 25px;
+
+
+    margin-right: 120px;
+    font-size: small;
+    text-align: center;
+    float: right;
+}
+
+.botones {
+    
+    list-style-type: none;
+    width: 395.2px;
+}
+
+.propietario {
+    height: 22px;
+}
+
+.cvv {
+    width: 40px;
+    height: 22px;
+    text-align: center;
+
+}
+
+.boton-cancelar {
+    float: right;
+    border: none;
+    color: gray;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 3px;
+
+    background-color: white;
+}
+
+.registro {
+    float: right;
+    width: 150px;
+
+}
+
+.radio {
+    list-style: none;
+    width: fit-content;
+    margin: 20px;
+
+}
+
+.formulario {
+    list-style: none;
+    clear: both;
+
+    margin: 20px;
+}
+
+.tarjeta {
+    width: 80px;
+    height: 22px;
+
+    text-align: center;
+
+}
+
+.div-agregar {
+    margin: 20px;
+    width: 400px;
+    height: 230px;
+    padding-bottom: 20px;
+    border-style: groove;
+}
+
+
+.div-depositar {
+    width: 350px;
+}
+
+.hidden {
+    display: none;
+}
+
+.register_success {
+    color: green;
+
+
+}
+
+.depositar {
+    margin: 20px;
+    width: 400px;
+
+    padding-bottom: 20px;
+    border-style: groove;
+}
+
+.delete-button {
+
+    border: none;
+
+    color: red;
+
+    float: right;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    background-color: white;
+
+
+}
+
+.div-nav {
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 8px;
+    cursor: pointer;
+    color: #00000080;
+
+}
+
+.error-2{
+    color: red;
+    font-size: small; 
+    margin-left: 10px;
+
+}
+
+.error{
+    color: red;
+
+    margin-left: 10px;
+
+}
+
+
+.success {
+    color: green;
+    width: fit-content;
+    margin: 10px;
+    padding: 0px;
+
+
+}
+
+
