@@ -1,4 +1,4 @@
-#Primero crear la base de datos proyecto1 en postgres
+#Primero crear la base de datos en postgres
 
 from app import db,Equipos,Partidos,Rol
 
