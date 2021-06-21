@@ -6,6 +6,12 @@
 - Salvador Olivares
 - Gabriel Suárez    
 
+# Instrucciones de uso
+- Crear una base de datos en postgres (modificar la uri en el "app.py" a gusto)
+- Hacer flask db upgrade en consola
+- Desde la consola de python, copiar y pegar el archivo "EJECUTAR_EN_CONSOLA_PYTHON_ANTES_DE_USAR_APP.txt"
+- Ejecutar el archivo app.py y listo!
+
 # Descripción del Proyecto:
 
 El proyecto consiste en una casa de apuestas relacionada a la Copa América que se disputa este año. Un usuario podrá registrarse y logearse para apostar a su equipo favorito, de acuerdo a su porcentaje de ganancia y dinero que invierta.
@@ -64,8 +70,3 @@ Por último, se implementó un CSS Style para vizualisar de mejor forma los resu
         Error 400: Cuando no se ingresó datos correctamente a la base de datos, saltaba este error.
         
 
-# Uso de la app
-- Crear una base de datos en postgres (modificar la uri en el "app.py" a gusto)
-- Hacer flask db upgrade en consola
-- Desde la consola de python, copiar y pegar el archivo "EJECUTAR_EN_CONSOLA_PYTHON_ANTES_DE_USAR_APP.txt"
-- Ejecutar el archivo app.py y listo!
