@@ -142,8 +142,11 @@ def comprobar_credenciales():
     usuario = request.get_json()['usuario']
     password = request.get_json()['password']
     lista_usuarios = Usuario.query.all()
-    id = 0
+    
     print(usuario)
+    if lista_usuarios==[]:
+        response['resultado'] = "incorrect_username"
+        return jsonify(response)
 
     for u in lista_usuarios:
         print(u.usuario == usuario)
@@ -152,8 +155,8 @@ def comprobar_credenciales():
             response['username'] = u.usuario
             response['password'] = u.contrasenia
             response['id'] = u.id_persona
-            response['dinero_en_cuenta']= u.dinero_en_cuenta
-            
+            response['dinero_en_cuenta'] = u.dinero_en_cuenta
+
             u.ult_inicio_sesion = datetime.datetime.now()
 
             db.session.commit()
@@ -216,8 +219,9 @@ def apuestas():
     return render_template('apuestas.html', data=Apuestas.query.all(), data2=Partidos.query.all(), data3=Usuario.query.all(), data4=Equipos.query.all(), d=d)
 
 
-@app.route('/informacion', methods=['POST']) #En esta pantalla se planeaba que el usuario
-                                            #modifique sus datos personales, no se logro hacer
+# En esta pantalla se planeaba que el usuario
+@app.route('/informacion', methods=['POST'])
+# modifique sus datos personales, no se logro hacer
 def informacion():
     d = request.form
 
@@ -395,7 +399,6 @@ def agregar_dinero():
     else:
         response['resultado'] = "success"
         u.dinero_en_cuenta += float(dinero_agregado)
-        
 
         db.session.commit()
 

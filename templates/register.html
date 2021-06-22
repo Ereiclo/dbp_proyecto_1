@@ -1,57 +1,9 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="http://127.0.0.1:5002/static/css/style_for_register.css">
     <title>BetsTec</title>
-    <style>
-        .boton {
-            margin-left: 60px;
 
-
-        }
-
-        .error {
-            width: fit-content;
-            margin: 20px;
-            color: red;
-
-
-        }
-
-        .boton-cancelar {
-            border: none;
-            color: gray;
-            cursor: pointer;
-            margin-left: 60px;
-            background-color: white;
-        }
-
-        .registro {
-            float: right;
-            width: 150px;
-
-        }
-
-        li {
-            list-style: none;
-            clear: both;
-
-            margin: 20px;
-        }
-
-        .div-registro {
-            width: 350px;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .register_success {
-            color: green;
-
-
-        }
-    </style>
 </head>
 
 <body>
@@ -146,11 +98,7 @@
 </body>
 
 <script>
-
-
-
-
-    document.getElementById("form").onsubmit = function (e) {
+    document.getElementById("form").onsubmit = function(e) {
         e.preventDefault();
 
         fetch('/register-verify', {
@@ -175,9 +123,9 @@
             }
 
 
-        }).then(function (r) {
+        }).then(function(r) {
             return r.json()
-        }).then(function (json) {
+        }).then(function(json) {
 
             console.log(json)
             if (json['resultado'] === "different_password") {
@@ -252,13 +200,11 @@
 
     }
 
-    document.getElementById("cancelar").onclick = function (e) {
+    document.getElementById("cancelar").onclick = function(e) {
         e.preventDefault();
 
         location.href = "/";
     }
-
-
 </script>
 
 </html>

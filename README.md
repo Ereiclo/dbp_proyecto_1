@@ -9,9 +9,10 @@
 # Instrucciones de uso: 
 - Crear una base de datos en postgres (modificar la uri en el "app.py" a gusto)
 - Hacer flask db upgrade en consola
-- Desde la consola de python (antes de entrar asegurénse de estar dentro de la carpeta dbp_proyecto_1), copiar y pegar el archivo "EJECUTAR_EN_CONSOLA_PYTHON_ANTES_DE_USAR_APP.txt"
-- Ejecutar el archivo app.py y listo!
+- Desde la consola de python (antes de entrar asegurénse de estar dentro de la carpeta dbp_proyecto_1), copiar y pegar el archivo "inicializacion_db.txt"
+- Ejecutar el archivo app.py y listo, ahora pueden entrar a la página web!
 
+*Es necesario tener los requisitos mencionados en el archivo requirements.txt*
 # Descripción del Proyecto:
 
 El proyecto consiste en una casa de apuestas relacionada a la Copa América que se disputa este año. Un usuario podrá registrarse y logearse para apostar a su equipo favorito, de acuerdo a su porcentaje de ganancia y dinero que invierta.
@@ -49,8 +50,12 @@ Uso de funciones básicas del boostrap, tales como: Containers, Clase Row para t
 Se usó una barra Nav para la navegación rápida en los 4 htmls.
 Por último, se implementó un CSS Style para vizualisar de mejor forma los resultados de las consultas a la base de datos.
 
-# Script: app.py 
-# API:
+# Script para la db: inicializacion_db.txt
+# API: app.py
+
+En el archivo.py llamado app encontramos todas las funciones usadas para enviar mensajes entre el cliente y la base de datos. Aquí se encuentran funciones de lógica que comprueban, por ejemplo, el inicio de sesión o el correcto registro. Tambien tenemos funciones actualizar datos, como la funcion agregar_dinero. Esta, dentro del html de depositar, sirve para aumentar el dinero en cuenta del usuario. El app.py es el núcleo del funcionamiento de la página web, es donde se encuentra la lógica del backend. 
+
+
 # Requests:
             Ingresar los datos para poder ingresar a la página web.
             Hacer click en un boton para realizar una apuesta por un equipo.
@@ -62,11 +67,12 @@ Por último, se implementó un CSS Style para vizualisar de mejor forma los resu
             Respecto al menu, en cada opción se redirige a la pestaña correspondiente.
             
 # Host: LocalHost
+
 # Autenticación: 
         Se usa la autenticación por password. Comprobamos que el usuario ingresado es el mismo que en la misma base de datos, además de comprueba que las contraseñas coinciden.
 
 # Manejo de Errores:
-        Error 500: Cuando ocurrió este error, siempre revisabamos e inspecionabamos la consola en la página web.
-        Error 400: Cuando no se ingresó datos correctamente a la base de datos, saltaba este error.
+        Error 500: Cuando ocurrió este error, siempre revisabamos e inspecionabamos la consola en la página web y el terminal de windows.
+        Error 404: Se ha configurado todas las request de forma que este error no puede ocurrir cuando uno accede a algun recurso dentro de los html creados para la página. Aun así no hemos planeado el manejo de este error cuando el usuario quiere hacer a un recurso, desde la url, que no existe. 
         
 

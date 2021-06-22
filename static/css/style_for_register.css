@@ -1,0 +1,40 @@
+.boton {
+    margin-left: 60px;
+}
+
+.error {
+    width: fit-content;
+    margin: 20px;
+    color: red;
+}
+
+.boton-cancelar {
+    border: none;
+    color: gray;
+    cursor: pointer;
+    margin-left: 60px;
+    background-color: white;
+}
+
+.registro {
+    float: right;
+    width: 150px;
+}
+
+li {
+    list-style: none;
+    clear: both;
+    margin: 20px;
+}
+
+.div-registro {
+    width: 350px;
+}
+
+.hidden {
+    display: none;
+}
+
+.register_success {
+    color: green;
+}

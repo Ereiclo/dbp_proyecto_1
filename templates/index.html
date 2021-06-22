@@ -1,179 +1,139 @@
 <html>
-    <head>
-        <title>BecTec</title>
-    
 
-    <style>
-
-        .hidden{
-            display: none;
-        }
-        .error{
-            width: fit-content;
-            margin-left: 20px;
-            color: red;
-
-        }
-        .login{
-            
-            
-            
-            
-            width: 200px;
-            
-            
-        }
-        li {
-            list-style: none;
-            clear: both;
-            margin: 10px;
-        }
+<head>
+    <link rel="stylesheet" href="http://127.0.0.1:5002/static/css/style_for_index.css">
+    <title>BecTec</title>
 
 
-        .us_pass{
-            
-            float: right;
-            width: 100px;
+</head>
+<h3>Bienvenido a BecTec!</h3>
 
-        }
+<body>
+    <form id="form" action="/partidos" method="POST">
+        <div class="login">
+            <li>
+                <label for="usuario">Usuario: </label>
+                <input type="text" id="usuario" name="usuario" class="us_pass">
 
-        .boton{
-            margin-left: 25px;
-            
-            
-        }
+            </li>
 
-    
+        </div>
 
-    </style>
-    </head>
-    <h3>Bienvenido a BecTec!</h3>
-    <body>
-        <form id="form" action="/partidos" method="POST">
-            <div class="login">
-                <li>
-                    <label for= "usuario" >Usuario: </label>
-                    <input type="text" id="usuario" name="usuario" class="us_pass">
-                    
-                </li>
-                
-            </div>
+        <div class="hidden" id="error_usuario">Ingrese un usuario valido</div>
 
-            <div class="hidden" id= "error_usuario">Ingrese un usuario valido</div>
-                
-            
-            <div class="login">
-                <li><label for="password">Contraseña: </label>
+
+        <div class="login">
+            <li><label for="password">Contraseña: </label>
                 <input type="password" id="password" name="password" class="us_pass"></li>
-            </div>
-                
-
-            <div class="hidden" id= "error_password">Contraseña incorrecta</div>
-            
-
-            <div class="login">
-                <li><input type="submit" id="btnsubmit" value="Login" class="boton">
-                    <button class="boton" id='register'>Register</button>
-                </li>
-                
-
-            </div>
+        </div>
 
 
-        </form>
+        <div class="hidden" id="error_password">Contraseña incorrecta</div>
 
 
-        <script>
-            document.getElementById('register').onclick= function(e){
-                e.preventDefault();
-                document.getElementById("error_password").className="hidden"
-                document.getElementById("error_usuario").className="hidden"
-
-                location.href="/register"
+        <div class="login">
+            <li><input type="submit" id="btnsubmit" value="Login" class="boton">
+                <button class="boton" id='register'>Register</button>
+            </li>
 
 
+        </div>
 
-            }
+
+    </form>
+
+
+    <script>
+        document.getElementById('register').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById("error_password").className = "hidden"
+            document.getElementById("error_usuario").className = "hidden"
+
+            location.href = "/register"
 
 
 
-            document.getElementById("form").onsubmit= function(e){
-                
-                
-                e.preventDefault();
-
-                fetch('/comprobar-credenciales',{
-                    method: 'POST',
-
-                    body: JSON.stringify({
-                        'usuario': document.getElementById("usuario").value,
-                        'password': document.getElementById("password").value
-                    }),
-
-                    headers: {
-                        "Content-Type":"application/json"
-                    }
-
-                }).then(function(r){
-                    
-                    return r.json();
-                }).then(function(json){
-                    
-                    console.log(json)
-
-                    if(json['resultado']==="success"){
-                        document.getElementById("error_password").className="hidden"
-                        document.getElementById("error_usuario").className="hidden"
-                        var id= document.createElement("input")
-                        id.className="hidden"
-                        id.name="id"
-                        id.value=json['id']
-                        var monto= document.createElement("input")
-                        monto.className="hidden"
-                        monto.name="dinero_en_cuenta"
-                        monto.value=json['dinero_en_cuenta']
-                        
-                        document.getElementById("form").appendChild(monto)
-                        document.getElementById("form").appendChild(id)
-                        document.getElementById("form").submit();
-                        
-                                        
+        }
 
 
-                        
-                        
-                        
 
-                    } else if(json['resultado']==="incorrect_password"){
-                        document.getElementById("password").value=""
-                        document.getElementById("error_usuario").className="hidden"
-                        document.getElementById("error_password").className="error"
-                        
-
-                    }else if(json['resultado']==="incorrect_username"){
-                        document.getElementById("password").value=""
-                        document.getElementById("usuario").value=""
-                        document.getElementById("error_usuario").className="error"
-                        document.getElementById("error_password").className="hidden"
-                        
+        document.getElementById("form").onsubmit = function(e) {
 
 
-                    }
+            e.preventDefault();
 
-                })
+            fetch('/comprobar-credenciales', {
+                method: 'POST',
 
-            }
-            console.log(document.getElementById("form").action)
-            function prueba(){
-                document.getElementById("error_usuario").className="error"
-                document.getElementById("error_password").className="error"
-                
-            }
+                body: JSON.stringify({
+                    'usuario': document.getElementById("usuario").value,
+                    'password': document.getElementById("password").value
+                }),
 
-        </script>
+                headers: {
+                    "Content-Type": "application/json"
+                }
+
+            }).then(function(r) {
+
+                return r.json();
+            }).then(function(json) {
+
+                console.log(json)
+
+                if (json['resultado'] === "success") {
+                    document.getElementById("error_password").className = "hidden"
+                    document.getElementById("error_usuario").className = "hidden"
+                    var id = document.createElement("input")
+                    id.className = "hidden"
+                    id.name = "id"
+                    id.value = json['id']
+                    var monto = document.createElement("input")
+                    monto.className = "hidden"
+                    monto.name = "dinero_en_cuenta"
+                    monto.value = json['dinero_en_cuenta']
+
+                    document.getElementById("form").appendChild(monto)
+                    document.getElementById("form").appendChild(id)
+                    document.getElementById("form").submit();
 
 
-    </body>
+
+
+
+
+
+
+                } else if (json['resultado'] === "incorrect_password") {
+                    document.getElementById("password").value = ""
+                    document.getElementById("error_usuario").className = "hidden"
+                    document.getElementById("error_password").className = "error"
+
+
+                } else if (json['resultado'] === "incorrect_username") {
+                    document.getElementById("password").value = ""
+                    document.getElementById("usuario").value = ""
+                    document.getElementById("error_usuario").className = "error"
+                    document.getElementById("error_password").className = "hidden"
+
+
+
+                }
+
+            })
+
+        }
+        console.log(document.getElementById("form").action)
+
+        function prueba() {
+            document.getElementById("error_usuario").className = "error"
+            document.getElementById("error_password").className = "error"
+
+        }
+    </script>
+
+
+</body>
 
 
 

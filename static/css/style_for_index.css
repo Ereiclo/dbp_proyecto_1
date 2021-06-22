@@ -1,0 +1,28 @@
+.hidden {
+    display: none;
+}
+
+.error {
+    width: fit-content;
+    margin-left: 20px;
+    color: red;
+}
+
+.login {
+    width: 200px;
+}
+
+li {
+    list-style: none;
+    clear: both;
+    margin: 10px;
+}
+
+.us_pass {
+    float: right;
+    width: 100px;
+}
+
+.boton {
+    margin-left: 25px;
+}
