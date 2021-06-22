@@ -186,6 +186,8 @@ def depositar():
     print(tarjetas)
     if tarjetas != None:
         leng = len(tarjetas)
+    
+    print(leng,"<- cantidad de tarjetas")
 
     return render_template('depositar.html', d=d, leng=leng, nms=nms)
 
