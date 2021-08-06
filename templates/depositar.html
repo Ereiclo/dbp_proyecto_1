@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for ('static',filename='css/bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="http://127.0.0.1:5002/static/css/style_for_depositar.css">
-    <title>BetsTec</title>
+    <link rel="stylesheet" href="http://192.168.1.34:5002/static/css/style_for_depositar.css">
+    <link rel="shortcut icon" href="http://192.168.1.34:5002/static/images/bectec.png">
+    <title>BecTec</title>
 
 
 
@@ -16,7 +17,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">BetsTec</a>
+        <a class="navbar-brand">BecTec</a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -36,7 +37,7 @@
 
             </ul>
         </div>
-        <li class="li-nav" id="mostrar_dinero" value="{{d['dinero_en_cuenta']}}">Dinero en cuenta: {{d['dinero_en_cuenta']}}</li>
+        <li class="li-nav" id="mostrar_dinero" value="{{dinero_en_cuenta}}">Dinero en cuenta: {{dinero_en_cuenta}}</li>
         &nbsp;&nbsp;&nbsp;&nbsp;
 
         <li class="li-cerrar-sesion" onclick="window.location.href='/'"><u>Cerrar sesión</u></li>
@@ -69,10 +70,9 @@
 
                 {%endfor%}
 
-                <label for="dinero_agregado">Pon una cantidad a agregar: </label>
-                <input type="text" id="monto" name="dinero_agregado">
-                &nbsp;&nbsp;<input type="submit" id="btnsubmit" name="btn"><label for="btn" class="hidden"
-                    id="msg"></label>
+                <label for="dinero_agregado">Ingrese un monto para depositar: </label>
+                <input type="text" id="monto" name="dinero_agregado" style="width: 100px;"> &nbsp;&nbsp;
+                <input type="submit" id="btnsubmit" name="btn" style="margin-left: 20px;"><label for="btn" class="hidden" id="msg"></label>
 
             </div>
 
@@ -86,9 +86,8 @@
 
 
         <script>
-
             if (document.getElementById("form_enviar") !== null) {
-                document.getElementById("form_enviar").onsubmit = function (e) {
+                document.getElementById("form_enviar").onsubmit = function(e) {
                     e.preventDefault()
 
                     fetch('/agregar_dinero', {
@@ -103,10 +102,10 @@
 
                         }
 
-                    }).then(function (r) {
+                    }).then(function(r) {
                         return r.json()
-                    }).then(function (json) {
-                        var value=document.getElementById("mostrar_dinero").value
+                    }).then(function(json) {
+                        var value = document.getElementById("mostrar_dinero").value
 
                         if (json['resultado'] === "incorrect_input") {
                             document.getElementById("monto").value = ""
@@ -125,15 +124,15 @@
                             document.getElementById("msg").innerHTML = "Error, depósito negativo"
 
                         } else if (json['resultado'] === "success") {
-                            value= (parseInt(value)+ parseInt(document.getElementById("monto").value)).toString()
-                            document.getElementById("mostrar_dinero").value= value
-                            document.getElementById("mostrar_dinero").innerHTML= "Dinero en cuenta: " + value
-                            
+                            value = (parseInt(value) + parseInt(document.getElementById("monto").value)).toString()
+                            document.getElementById("mostrar_dinero").value = value
+                            document.getElementById("mostrar_dinero").innerHTML = "Dinero en cuenta: " + value
+
                             document.getElementById("monto").value = ""
                             document.getElementById("msg").className = "success"
                             document.getElementById("msg").innerHTML = "Transaccion exitosa!"
-                            
-                            
+
+
 
                         }
 
@@ -152,7 +151,7 @@
             for (let i = 0; i < divnavs.length; i++) {
                 const divnav = divnavs[i];
 
-                divnav.onclick = function () {
+                divnav.onclick = function() {
 
                     const f = document.getElementById("form_enviar")
 
@@ -229,7 +228,7 @@
                 const button = buttons[i];
 
 
-                button.onclick = function (e) {
+                button.onclick = function(e) {
                     e.preventDefault()
 
 
@@ -239,13 +238,13 @@
 
                         method: "DELETE"
 
-                    }).then(function (r) {
+                    }).then(function(r) {
 
                         console.log(r);
 
                         return r.json()
 
-                    }).then(function (jsonresponse) {
+                    }).then(function(jsonresponse) {
 
                         if (jsonresponse["success"]) {
 
@@ -267,13 +266,14 @@
             if (document.getElementById("agregar_tarjeta") !== null) {
 
 
-                document.getElementById("agregar_tarjeta").onclick = function (e) {
+                document.getElementById("agregar_tarjeta").onclick = function(e) {
                     e.preventDefault()
                     append_card()
 
 
                 }
             }
+
             function append_card() {
 
 
@@ -364,7 +364,7 @@
                 button_cancel.className = "boton-cancelar"
                 button_cancel.id = "a_cancelar"
 
-                button_cancel.onclick = function (e) {
+                button_cancel.onclick = function(e) {
                     e.preventDefault()
 
                     redirect_depositar()
@@ -375,7 +375,7 @@
                 button_append.className = "boton-agregar"
                 button_append.innerHTML = "Agregar"
                 button_append.name = "boton-agregar"
-                button_append.onclick = function (e) {
+                button_append.onclick = function(e) {
                     console.log(form)
                     e.preventDefault()
                     fetch('/comprobar-tarjeta', {
@@ -396,9 +396,9 @@
 
                         }
 
-                    }).then(function (r) {
+                    }).then(function(r) {
                         return r.json()
-                    }).then(function (json) {
+                    }).then(function(json) {
                         console.log(json)
 
                         if (json['resultado'] === "invalid_card_number") {
@@ -495,7 +495,7 @@
 
             function redirect_depositar() {
                 var f = 0
-                
+
                 if (document.getElementById("form") !== null) {
                     f = document.getElementById("form")
 
@@ -536,9 +536,9 @@
                 i4.name = "dinero_en_cuenta"
 
                 i4.value = document.getElementById("mostrar_dinero").value
-                
-                
-                
+
+
+
 
 
                 form.appendChild(i1)
@@ -555,13 +555,6 @@
 
 
             }
-
-
-
-
-
-
-
         </script>
 
 </body>

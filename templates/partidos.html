@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{url_for ('static',filename='css/bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="http://127.0.0.1:5002/static/css/style_for_partidos.css">
-    <title>BetsTec</title>
+    <link rel="stylesheet" href="http://192.168.1.34:5002/static/css/style_for_partidos.css">
+    <link rel="shortcut icon" href="http://192.168.1.34:5002/static/images/bectec.png">
+    <title>BecTec</title>
 
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand">BetsTec</a>
+        <a class="navbar-brand">BecTec</a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -32,7 +33,7 @@
                 </li>
             </ul>
         </div>
-        <li class="li-nav" id="mostrar_dinero" value="{{d['dinero_en_cuenta']}}">Dinero en cuenta: {{d['dinero_en_cuenta']}}</li>
+        <li class="li-nav" id="mostrar_dinero" value="{{dinero_en_cuenta}}">Dinero en cuenta: {{dinero_en_cuenta}}</li>
         &nbsp;&nbsp;&nbsp;&nbsp;
 
         <li class="li-cerrar-sesion" onclick="window.location.href='/'"><u>Cerrar sesión</u></li>
@@ -45,48 +46,48 @@
             <div class="row" id="row">
                 <div class="col-6">
                     {% for equipo in data%} {% for country in data2%} {%if country.id_equipo == equipo.equipo_a and equipo.equipo_a==1%}
-                    <label>{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Argentina.png" height="20" class="fotos_pais" /><label id="description1.1">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;
+                    <label>{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Argentina.png" height="20" class="fotos_pais" /><label id="description1.1">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;
                     <label id="description2.1">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton1" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==2%}
-                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Chile.png" height="20" /><label id="description1.2">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.2">{{equipo.porcentaje_1 }}</label>
+                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Chile.png" height="20" /><label id="description1.2">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.2">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton2" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==3%}
-                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Colombia.png" height="20" /><label id="description1.3">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.3">{{equipo.porcentaje_1 }}</label>
+                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Colombia.png" height="20" /><label id="description1.3">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.3">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton3" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==4%}
-                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Peru.png" height="20" /><label id="description1.4">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.4">{{equipo.porcentaje_1 }}</label>
+                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Peru.png" height="20" /><label id="description1.4">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.4">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton4" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==5%}
-                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Ecuador.png" height="20" /><label id="description1.5">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.5">{{equipo.porcentaje_1 }}</label>
+                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Ecuador.png" height="20" /><label id="description1.5">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.5">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton5" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==6%}
-                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Brasil.png" height="20" /><label id="description1.6">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.6">{{equipo.porcentaje_1 }}</label>
+                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Brasil.png" height="20" /><label id="description1.6">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.6">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton6" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==7%}
-                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Paraguay.png" height="20" /><label id="description1.7">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.7">{{equipo.porcentaje_1 }}</label>
+                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Paraguay.png" height="20" /><label id="description1.7">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.7">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton7" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==8%}
-                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Venezuela.png" height="20" /><label id="description1.8">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.8">{{equipo.porcentaje_1 }}</label>
+                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Venezuela.png" height="20" /><label id="description1.8">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.8">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton8" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==9%}
-                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Bolivia.png" height="20" /><label id="description1.9">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.9">{{equipo.porcentaje_1 }}</label>
+                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Bolivia.png" height="20" /><label id="description1.9">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.9">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton9" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%elif country.id_equipo == equipo.equipo_a and equipo.equipo_a==10%}
-                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://127.0.0.1:5002/static/images/Uruguay.png" height="20" /><label id="description1.10">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.10">{{equipo.porcentaje_1 }}</label>
+                    <label id="id_partido">{{equipo.id_partido}}&nbsp;</label><img src="http://192.168.1.34:5002/static/images/Uruguay.png" height="20" /><label id="description1.10">{{country.pais}}</label>&nbsp; &nbsp; &nbsp;<label id="description2.10">{{equipo.porcentaje_1 }}</label>
                     <input type="button" name="elegir" value="1" id="boton10" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_1}}" data-pais="{{country.pais}}"> {%endif%} {%if country.id_equipo == equipo.equipo_b and
                     equipo.equipo_b==1%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.1" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.1">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.1">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Argentina.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==2%} &nbsp;&nbsp;
+                    &nbsp; &nbsp;<label id="description1.1">{{country.pais}}</label> <img src="http://192.168.1.34:5002/static/images/Argentina.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==2%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.2" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.2">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.2">{{country.pais}}</label><img src="http://127.0.0.1:5002/static/images/Chile.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==3%} &nbsp;&nbsp;
+                    &nbsp; &nbsp;<label id="description1.2">{{country.pais}}</label><img src="http://192.168.1.34:5002/static/images/Chile.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==3%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.3" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.3">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.3">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Colombia.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==4%} &nbsp;&nbsp;
+                    &nbsp; &nbsp;<label id="description1.3">{{country.pais}}</label> <img src="http://192.168.1.34:5002/static/images/Colombia.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==4%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.4" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.4">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.4">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Peru.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==5%} &nbsp;&nbsp;
+                    &nbsp; &nbsp;<label id="description1.4">{{country.pais}}</label> <img src="http://192.168.1.34:5002/static/images/Peru.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==5%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.5" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.5">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.5">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Ecuador.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==6%} &nbsp;&nbsp;
+                    &nbsp; &nbsp;<label id="description1.5">{{country.pais}}</label> <img src="http://192.168.1.34:5002/static/images/Ecuador.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==6%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.6" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.6">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.6">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Brasil.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==7%} &nbsp;&nbsp;
+                    &nbsp; &nbsp;<label id="description1.6">{{country.pais}}</label> <img src="http://192.168.1.34:5002/static/images/Brasil.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==7%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.7" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.7">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.7">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Paraguay.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==8%} &nbsp;&nbsp;
+                    &nbsp; &nbsp;<label id="description1.7">{{country.pais}}</label> <img src="http://192.168.1.34:5002/static/images/Paraguay.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==8%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.8" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.8">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.8">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Venezuela.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==9%} &nbsp;&nbsp;
+                    &nbsp; &nbsp;<label id="description1.8">{{country.pais}}</label> <img src="http://192.168.1.34:5002/static/images/Venezuela.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==9%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.9" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.9">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.9">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Bolivia.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==10%} &nbsp;&nbsp;
+                    &nbsp; &nbsp;<label id="description1.9">{{country.pais}}</label> <img src="http://192.168.1.34:5002/static/images/Bolivia.png" height="20" /><br> {%elif country.id_equipo == equipo.equipo_b and equipo.equipo_b==10%} &nbsp;&nbsp;
                     <input type="button" name="elegir" value="2" id="boton2.10" class="boton_apuesta" data-id="{{equipo.id_partido}}" data-por="{{equipo.porcentaje_2}}" data-pais="{{country.pais}}"> <label id="description2.10">{{equipo.porcentaje_2}}</label>&nbsp;
-                    &nbsp; &nbsp;<label id="description1.10">{{country.pais}}</label> <img src="http://127.0.0.1:5002/static/images/Uruguay.png" height="20" /><br> {%endif%} {%endfor%} {%endfor%}
+                    &nbsp; &nbsp;<label id="description1.10">{{country.pais}}</label> <img src="http://192.168.1.34:5002/static/images/Uruguay.png" height="20" /><br> {%endif%} {%endfor%} {%endfor%}
                 </div>
             </div>
         </div>

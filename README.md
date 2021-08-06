@@ -76,3 +76,4 @@ En el archivo.py llamado app encontramos todas las funciones usadas para enviar 
         Error 404: Se ha configurado todas las request de forma que este error no puede ocurrir cuando uno accede a algun recurso dentro de los html creados para la página. Aun así no hemos planeado el manejo de este error cuando el usuario quiere hacer a un recurso, desde la url, que no existe. 
         
 
+$$\sigma$$
