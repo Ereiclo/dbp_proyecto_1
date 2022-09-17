@@ -21,7 +21,7 @@ import datetime
 import json
 import datetime
 
-app = Flask(__name__)
+app = Flask(__name__)#ooowowowowo
 
 # no se olviden de crear la base de datos en postgres proyecto1
 
