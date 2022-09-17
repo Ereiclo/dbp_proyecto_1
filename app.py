@@ -9,6 +9,7 @@
 '''
 me gusta algo:
 no
+si
 '''
 from logging import error
 
