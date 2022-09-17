@@ -17,7 +17,6 @@ from logging import error
 import datetime
 import json
 import datetime
-#
 
 app = Flask(__name__)
 
